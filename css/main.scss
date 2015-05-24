@@ -4,49 +4,138 @@
 @charset "utf-8";
 
 
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "normalize",
+        "grid"
+;
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$base-font-family: Rockwell, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
+$header-font-family: Rockwell-Bold, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
+$base-font-size:   1.5rem;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
+$base-line-height: 1.6;
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$primary-font-color: #546052;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$bigger-than-mobile: 600px;
 
-// Width of the content area
-$content-width:    800px;
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$on-palm:          600px;
-$on-laptop:        800px;
+html {
+  font-size: 62.5%; 
+  @media screen and (min-width: $bigger-than-mobile) {
+    font-size: 72%;
+  }
+}
+body {
+  font-family: $base-font-family;
+  color: $primary-font-color;
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: $base-line-height;
+  font-weight: 400; }
 
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  font-weight: 300; }
+h1 { 
+  font-size: 1.8rem; 
+  line-height: 1.33; 
+  margin-top: 1.33em;
+  margin-bottom: 1.33em; 
+  letter-spacing: -.05rem; }
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+  /* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: darken($primary-font-color, 20%); 
+  text-decoration: none;
+}
+a:hover {
+  color: lighten($primary-font-color, 20%); }
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+
+/* Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.posts {
+  clear: both;
+}
+
+.posts-year {
+  display: none;
+  @media screen and (min-width: $bigger-than-mobile) {
+    display: block;
+  }
+}
+
+.post-list li {
+  @media screen and (min-width: $bigger-than-mobile) {
+    margin-left: 6rem;
+  }
+}
+
+/* Modules
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+header .site-title {
+  font-weight: 900;
+  text-shadow: 0px 1px 3px rgba(139,130,130,0.50);
+}
+
+.posts-year {
+  color: rgba(94,89,89,0.64);
+  // line-height: 20px;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-link {
+  font-weight: 900;
+  color: $primary-font-color;
+}
+
+.post-meta {
+  font-family: $base-font-family;
+  font-size: 75%;
+  font-weight: 400;
+  color: lighten($primary-font-color, 30%);
 }
 
 
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+
