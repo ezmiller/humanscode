@@ -3,12 +3,10 @@
 ---
 @charset "utf-8";
 
-
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "normalize",
-        "grid"
-;
+@import "normalize",
+        "grid",
+        "syntax-highlighting";
 
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -18,9 +16,11 @@ $header-font-family: Rockwell-Bold, 'Courier Bold', Courier, Georgia, Times, 'Ti
 $base-font-size:   1.5rem;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.6;
-$spacing-unit:     30px;
 
 $primary-font-color: #546052;
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
 
 $bigger-than-mobile: 600px;
 
@@ -58,6 +58,10 @@ h2 {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
+p {
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+}
 
   /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -86,6 +90,32 @@ ol ul {
   font-size: 90%; }
 li {
   margin-bottom: 1rem; }
+
+/* Code
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
 
 /* Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
