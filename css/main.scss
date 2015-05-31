@@ -18,6 +18,8 @@ $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.6;
 
 $primary-font-color: #546052;
+$link-font-color: darken($primary-font-color, 25%);
+
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
@@ -66,11 +68,17 @@ p {
   /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: darken($primary-font-color, 20%); 
+  color: $link-font-color;
   text-decoration: none;
+
+  &:hover {
+    color: darken($primary-font-color, 60%);
+  }
 }
-a:hover {
-  color: lighten($primary-font-color, 20%); }
+
+.post-list a:hover {
+  border-bottom: solid 3px $primary-font-color; }
+
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -145,6 +153,10 @@ header .site-title {
   text-shadow: 0px 1px 3px rgba(139,130,130,0.50);
 }
 
+.posts {
+  min-height: 30rem;
+}
+
 .posts-year {
   color: rgba(94,89,89,0.64);
   // line-height: 20px;
@@ -159,11 +171,74 @@ header .site-title {
   color: $primary-font-color;
 }
 
+.post figure.image img {
+  width: 100%;
+}
+
+.post figure.youtube-video {
+  width: 80%;
+
+  .youtube-video-wrap {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+
+    iframe { 
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    } 
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+  }
+
+}
+
+.post figcaption {
+  font-size: 90%;
+
+  .caption-title {
+    color: $link-font-color;
+  }
+}
+
 .post-meta {
   font-family: $base-font-family;
-  font-size: 75%;
+  font-size: 85%;
   font-weight: 400;
-  color: lighten($primary-font-color, 30%);
+  font-style: italic;
+  color: lighten($primary-font-color, 20%);
+}
+
+.footnotes {
+  margin-left: 2rem;
+  font-size: 80%;
+  color: lighten($primary-font-color, 20%);
+
+  a {
+    color: inherit;
+
+    &:hover {
+      border-bottom: none;
+    }
+
+  }
+
+}
+
+footer {
+  text-align: center;
+  
+  p {
+    font-size: 80%;
+    color: lighten($primary-font-color, 40%);
+  }
+
 }
 
 
