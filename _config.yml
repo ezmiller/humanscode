@@ -1,10 +1,10 @@
 # Site settings
-title: Ethan Zane Miller
+title: HumansCode
 email: ethanzanemiller@gmail.com
 description: > 
-  a programer and historian interested in the intersection of technology, ideas, and scholarship that we call the digital humanities
+  ethan miller is a programer and historian interested in the intersection of technology, ideas, and scholarship that we call the digital humanities
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://ethanzanemiller.com" # the base hostname & protocol for your site
+url: "http://humanscode.com" # the base hostname & protocol for your site
 twitter_username: ezmiller
 github_username:  ezmiller
 
