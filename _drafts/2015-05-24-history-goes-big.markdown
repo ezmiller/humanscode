@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "What is Digital Humanities? And Why?"
-date:   2015-05-24 
+title:  "History Goes Big"
+date:   2015-05-26 
 categories: digital humanities
 ---
 
