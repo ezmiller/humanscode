@@ -142,6 +142,9 @@ pre {
 }
 
 .post-list li {
+
+  article > h2 { margin-bottom: 0 };
+
   @media screen and (min-width: $bigger-than-mobile) {
     margin-left: 6rem;
   }
