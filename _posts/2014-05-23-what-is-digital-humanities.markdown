@@ -2,11 +2,14 @@
 layout: post
 title:  "What is Digital Humanities? And Why?"
 author: Ethan Miller
-date:   2015-06-3
-categories: digital-humanities capitalism 
+date:   2015-06-03
+categories: digital-humanities
+tags:
+- digital humanities 
+- capitalism 
 ---
 
-In the last few years, the field of digital humanities has emerged to some prominence. "Digi Labs" are suddenly appearing all across the academic landscape, and one now meets graduate students who are not only writing PhDs in one of the classic disciplines, but who also belong to digital lab or institutes of some sort. What I want to do in this post is define in a expansive way what I think this new field of "digital humanities" is, and why it has suddenly in the last few years become more visible. 
+In the last few years, the field of digital humanities has emerged to some prominence. "Digi Labs" are suddenly appearing all across the academic landscape, and one now meets graduate students who are not only writing PhDs in one of the classic disciplines, but who also belong to digital lab or institutes of some sort. What I want to do in this post is define in an expansive way what I think this new field of "digital humanities" is, and why it has suddenly in the last few years become more visible. 
 
 My own background in relation to academia and "the digital" is a useful tool for reflection in tracing this story. I am a historian, trained in the craft of intellectual history, and I have always also been a programmer. When I was quite young my uncle taught me to program in the popular and very simple language BASIC. I subsequently continued to program, building a database for a research lab in highschool, studying computer science alongside history and literature at university, and then working just prior to entering graduate school as an "integration specialist" -- a great bureaucratic job title if there ever was one -- in a company that built Ask Jeeves-style "Virtual Representatives" for companies like Coca Cola. 
 
@@ -22,7 +25,7 @@ In the same way that critical theorists like Thomas Frank, Boltanski & Chiapello
 
 {% include figure.html src="/images/agilemanifesto.jpg" caption="<a href='http://agilemanifesto.org'>Manifesto for Agile Software Development</a>: The goal of agile development is to free programmers to quickly iterate through different solutions to complex problems, with the aim of as quickly as possible hitting upon the best and most elegant or simple way to do things. These ideas have taken the start-up world by storm in the last years, so much so that the one often hears talk among coders of how these principles risk becoming empty buzz-words." %}
 
-This is a realization that in turn reveals the historical logic that has made Silicon Valley & San Francisco the new core of market innovation -- San Francisco of all places! Where once Mario Savio, brimming with with anger, stood up to the Berkeley administration for subordinating free-speech on campus to the bureaucratic logic of the military industrial complex, now the agile manifesto takes a similar emphasis on individual freedom and builds it into a managerial ethos for Silicon Valley. Bright young college grads stream to the city, not in search of political change and sexual liberation, but as a playground for technological innovation and as a place where the individual creativity and motivation can be liberated (if you are lucky) in the context of high volumes of seed money.
+This is a realization that in turn reveals the historical logic that has made Silicon Valley & San Francisco the new core of market innovation -- San Francisco of all places! Where once Mario Savio, brimming with anger, stood up to the Berkeley administration for subordinating free-speech on campus to the bureaucratic logic of the military industrial complex, now the agile manifesto takes a similar emphasis on individual freedom and builds it into a managerial ethos for Silicon Valley. Bright young college grads stream to the city, not in search of political change and sexual liberation, but as a playground for technological innovation and as a place where the individual creativity and motivation can be liberated (if you are lucky) in the context of high volumes of seed money.
 
 {% include youtube.html src="https://www.youtube.com/embed/PhFvZRT7Ds0" caption="<span class='caption-title'>Mario Savio, Dec. 2, 1964</span>: Mario Savio's famous defense of &quot;human beings&quot; against the &quot;machine&quot; logic of the Berkeley University administrators. Insofar as agile development has become the key managerial philosophy of Silicon Valley, Savio's message has in a sense gone to the core of managerial culture." %}
 
@@ -44,7 +47,7 @@ Although it is far too soon to judge the results of this encounter, the meeting 
 
 What's at stake, of course, is very much a question of authority. Since the emergence of the universities in the middle ages, the idea of the humanities has often been associated with the goal of subjecting tradition and society to critical examination. As Jo Guldi and David Armitage have recently put it, "[t]heir purpose was precisely not to be instrumental: to examine theories and instances, to pose questions and the means of their solution, but not to propose practical objectives or strategies."[^4] In order to reserve this space for critical inquiry, universities and scholars have always at different time and places had to negotiate different settlements with the worlds of markets and politics. By my reading, the advent of the digital humanities suggests that a new moment of renegotiation and cultural transformation has begun, the outcome of which will reshape the universities' relationship to the world, and indeed possibly also transform the methods, practices, and even the subjectivities of working scholars. 
 
-I myself am curious about the outcome of this process, and look forward to being a critical participant in its unfolding. To that extent, I intend to document from time to time both my thinking about digital humanities and my coding work in this blog. I welcome feedback, so please write to me via <a href="emailto:ethanzanemiller@gmail.com">email</a> with any comments and/or questions.
+I myself am curious about the outcome of this process, and look forward to being a critical participant in its unfolding. To that extent, I intend to document from time to time both my thinking about digital humanities and my coding work in this blog.
 
 
 [^1]: Moira Weigel, “Graphs and Legends: Raymond Williams Tried to Save Culture from a Priestly Elite. Can the Same Be Said of the Digital Humanities?,” The Nation, June 1, 2015, <a href="http://www.thenation.com/article/207193/graphs-and-legends">http://www.thenation.com/article/207193/graphs-and-legends</a>.
