@@ -1,15 +1,16 @@
 ---
 layout: default
 ---
-<div class="post eight columns">
+<div class="post eight columns" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">by {% if page.author %}{{ page.author }}, {% endif %} {{ page.date | date: "%b %-d, %Y" }}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    <h1 class="post-title" itemprop="name"><a href="{{page.url | prepend: site.baseurl}}" itemprop="url">{{ page.title }}</a></h1>
+    <p class="post-meta">by <a href="{{ site.url }}"><span itemprop="author">{% if page.author %}{{ page.author }}</span></a> / {% endif %} <span pubdate itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}" content="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</span>{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
 
   <article class="post-content">
     {{ content }}
+    {% include invite.html %}
   </article>
 
 </div>

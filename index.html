@@ -20,10 +20,12 @@ layout: default
         {% endif %}
 
         <li>
-          <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> 
-            <span class="post-meta">{{ post.date | date: "%m/%-d/%Y" }}</span>
-          </h2>
+          <article itemscope itemtype="http://schema.org/BlogPosting">
+            <h2 itemprop="name">
+              <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" itemprop="url">{{ post.title }}</a> 
+            </h2>
+            <time class="post-meta" pubdate itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" content="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%-d/%Y" }}</time>
+          </article>
         </li>
 
         {% if forloop.last %}
