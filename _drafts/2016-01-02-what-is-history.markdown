@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Meaning of Openness for Professional Culture; or, Why I Built WhatIsHistory.Net?"
+title:  'The Meaning of "Openness" for Professional Culture in the Digital Age; or, Why I Built WhatIsHistory.Net?'
 author: Ethan Miller
 date:   2016-1-02
 categories: digital humanities
