@@ -10,7 +10,7 @@ In this post, I explain my reasons for building the website <a href="http://what
 
 ####What is the website?  
 
-Whatisistory.net is a simple tool for collecting definitions of the field of history. It provides a form for entering a definition, which resides at [here](http://whatishistory.net/defineit). Upon entering a definition, the user is given the opportunity to answer a few questions that provide context for their definition--where are they located, what is their profession, etc. This information is also saved in the database and associated with the definition. Finally, all this information is and will forever remain in public domain. User contributions are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US).
+Whatisistory.net is a simple tool for collecting definitions of the field of history. It provides a form for entering a definition, which resides [here](http://whatishistory.net/defineit). After a user has entered a definition, they are given the opportunity to answer a few questions that provide context for their definition -- where are they located, what is their profession, etc. This information is also saved in the database and associated with the definition. Finally, all this information is and will forever remain in public domain. User contributions are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US).
 
 #### The Background Motivation
 
