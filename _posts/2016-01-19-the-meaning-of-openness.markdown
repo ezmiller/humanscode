@@ -6,7 +6,7 @@ date:   2016-1-02
 categories: digital humanities
 ---
 
-In this post, explain my reasons for building the website <a href="http://whatishistory.net" target="_blank">whatishistory.net</a>. In doing so, I also present some ideas about the meaning of the notion of "openness" in the domain of culture as it is being pursued by so-called digital humanists.
+In this post, I explain my reasons for building the website <a href="http://whatishistory.net" target="_blank">whatishistory.net</a>. In doing so, I also present some ideas about the meaning of the notion of "openness" in the domain of culture as it is being pursued by so-called digital humanists.
 
 ####What is the website?  
 
