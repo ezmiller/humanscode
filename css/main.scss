@@ -31,7 +31,7 @@ $bigger-than-mobile: 600px;
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 html {
-  font-size: 62.5%; 
+  font-size: 62.5%;
   @media screen and (min-width: $bigger-than-mobile) {
     font-size: 82%;
   }
@@ -49,11 +49,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   font-weight: 300; }
-h1 { 
-  font-size: 1.8rem; 
-  line-height: 1.33; 
+h1 {
+  font-size: 1.8rem;
+  line-height: 1.33;
   margin-top: 1.33em;
-  margin-bottom: 1.33em; 
+  margin-bottom: 1.33em;
   letter-spacing: -.05rem; }
 h2 {
   font-size: 1.6rem;
@@ -70,12 +70,20 @@ p {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
   color: $link-font-color;
+
   text-decoration: none;
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 14px;
 
   &:hover {
-    color: darken($primary-font-color, 60%);
-  }
+    color: darken($primary-font-color, 60%); }
 }
+
+.post-list a,
+.post-title a {
+  background-image: none; }
 
 .post-list a:hover {
   color: $primary-font-color;
@@ -189,13 +197,13 @@ header .site-title {
     padding-top: 25px;
     height: 0;
 
-    iframe { 
+    iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-    } 
+    }
   }
 
   figcaption {
@@ -238,7 +246,7 @@ header .site-title {
 
 footer {
   text-align: center;
-  
+
   p {
     font-size: 80%;
     color: lighten($primary-font-color, 40%);
