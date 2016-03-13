@@ -70,7 +70,15 @@ p {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
   color: $link-font-color;
+
   text-decoration: none;
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 11px;
+  @media screen and (min-width: $bigger-than-mobile) {
+    background-position: 0 14px;
+  }
 
   &:hover {
     color: darken($primary-font-color, 60%);
