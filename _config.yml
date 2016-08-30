@@ -9,5 +9,16 @@ permalink: /:title
 twitter_username: ezmiller
 github_username:  ezmiller
 
+gems:
+  - jekyll-pandoc
+
 # Build settings
-markdown: kramdown
+markdown: Pandoc
+
+pandoc:
+  extensions:
+    - normalize
+    - smart
+    - mathjax
+    # - csl: _styles/apa.csl
+    # - bibliography: bibliography/references.bib
