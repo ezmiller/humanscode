@@ -17,8 +17,8 @@ markdown: Pandoc
 
 pandoc:
   extensions:
-    - normalize
-    - smart
+    # - normalize
+    # - smart
     - mathjax
     # - csl: _styles/apa.csl
     # - bibliography: bibliography/references.bib
