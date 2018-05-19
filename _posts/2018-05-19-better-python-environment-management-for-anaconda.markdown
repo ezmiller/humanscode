@@ -17,8 +17,8 @@ a sensible way to set up [Anaconda](https://www.anaconda.com/what-is-anaconda/) 
 Python and R distribution for data science frequently used with Jupyter Notebooks.
 
 The problem I experienced stemmed from the fact that  Anaconda has its own version of Python,
-which needed to be set on my system path. The Anaconda installation guide instructs you
-to place the following in your `.bashrc` or wherever you set up your system paths:
+which needed to be set on my system path. The Anaconda [installation guide](https://conda.io/docs/index.html)
+instructs you to place the following in your `.bashrc` or wherever you set up your system paths:
 
 ```
 export PATH=/path/to/anaconda:$PATH
