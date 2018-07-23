@@ -3,20 +3,20 @@ layout: post
 title:  "Building a Tf-Idf Keyword Extractor"
 author: Ethan Miller
 date:   2018-07-14 
-categories: nlp, data-science, python
+categories: natural-language-processing, data-science, python
 ---
 
 Automatic keyword extraction is a frequently encountered problem in natural language processing that poses some interesting challenges. The task of an automatic keyword extractor is to extract set of words and/or phrases that effectively summarize a given text.
 
-Such a tool can be useful in a variety of situations. One can, of course, generate keywords for presentation to humans. Additionally, because keyword extraction transforms unstructured data (the original text in all its  messiness) into a more structured form (the finite set of meaningful keywords), the keywords it produces can also be re-consumed by another alogrithm. For example, keyword extraction can be used to enhance document clustering and categorization or determine the semantic similarity of texts.
+Such a tool can be useful in a variety of situations. Generating keywords for human consumption is one use. Additionally, because keyword extraction transforms unstructured data (the original text in all its  messiness) into a more structured form (the finite set of meaningful keywords), the keywords it produces can also be re-consumed by another alogrithm. For example, keyword extraction can be used to enhance document clustering and categorization, keyword search, and the determination of semantic similarity between texts.
 
-There are a number of different methods, both supervised and unsupervised, for accomplishing keyword extraction.  In general, supervised methods are known to perform better but it can be challenging to find an appropriate prelabeled datset. As is always the case with supervised learning, one has to be careful not to overfit one's model to the training data. For a more in depth discusison, plus links to other additional resources, check out this excellent [blog post](https://bdewilde.github.io/blog/2014/09/23/intro-to-automatic-keyphrase-extraction/) by Burton DeWilde which I relied on heavily also in my coding up my solution.[^1]
+There are a number of different methods, both supervised and unsupervised, for accomplishing keyword extraction. In general, supervised methods are known to perform better but it can be challenging to find an appropriate prelabeled datset. As is always the case with supervised learning, one has to be careful not to overfit one's model to the training data. For a more in depth discusison, plus links to other additional resources, check out this excellent [blog post](https://bdewilde.github.io/blog/2014/09/23/intro-to-automatic-keyphrase-extraction/) by Burton DeWilde which I relied on heavily also in my coding up my solution.[^1]
 
 For my purposes, I chose an unsupervised method because I hoped to use the keyword extractor on texts whose topical domain is arbitary and unknown. I also wanted to start with the easiest method to implement, so I chose Tf-Idf.
 
 ### What is Tf-Idf?
 
-Tf-Idf is simple model for the evaluation of unstructured texts that breaks documents into unitary words or phrases (aka tokens) and then scores their relevance as a function of their frequency of use and their uniqueness of rarity within a given corpus. It breaks down like this:
+Tf-Idf is simple model for the evaluation of unstructured texts that breaks documents into unitary words or phrases (aka tokens) and then scores their relevance as a function of their frequency of use and their uniqueness within a given corpus. It breaks down like this:
 
 * $Tf = Term Frequency$
 * $Idf = \text{Inverse Document Frequency}$
