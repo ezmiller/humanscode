@@ -22,7 +22,6 @@ gems:
 # Build settings
 markdown: Pandoc
 
-
 pandoc:
   extensions:
     - mathjax
