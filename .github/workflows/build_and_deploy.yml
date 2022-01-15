@@ -32,6 +32,10 @@ jobs:
       run: bundle exec jekyll build
       env:
         JEKYLL_ENV: production
+    - name: Remove .html endings
+      run: |
+        find _site/ -type f ! -iname 'index.html' -iname '*.html' -print0 | while read -d $'\0' f; do mv "$f" "${f%.html}"; done
+        ls _site
     # - name: "Deploy to AWS S3"
     #   run: aws s3 sync ./_site/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete --cache-control max-age=604800
     # - name: "Create AWS Cloudfront Invalidation"
