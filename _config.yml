@@ -16,7 +16,7 @@ exclude: [
   vendor
 ]
 
-gems:
+plugins:
   - jekyll-pandoc
 
 # Build settings
