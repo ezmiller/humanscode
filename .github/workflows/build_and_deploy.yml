@@ -1,0 +1,45 @@
+name: CI / CD
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push for the main branch
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: 'us-west-2'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: r-lib/actions/setup-pandoc@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: "Build Site"
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+    - name: Remove .html endings
+      run: |
+        find _site/ -type f ! -iname 'index.html' -iname '*.html' -print0 | while read -d $'\0' f; do mv "$f" "${f%.html}"; done
+        ls _site
+    - name: Deploy to AWS S3
+      run: |
+        # sync everything but files w/out extensions, i.e. exlcude everything, and include only files matching *.* that have extensions
+        aws s3 sync ./_site/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude "*" --include "*.*" --delete --no-progress
+
+        # sync files without .html extension, setting content-type
+        aws s3 sync ./_site/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude "*.*" --content-type "text/html" --delete --no-progress
+
+    - name: Create AWS Cloudfront Invalidation
+      run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

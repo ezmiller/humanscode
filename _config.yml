@@ -9,6 +9,13 @@ permalink: /:title
 twitter_username: ezmiller
 github_username:  ezmiller
 
+exclude: [
+  Makefile,
+  Gemfile,
+  Gemfile.lock,
+  vendor
+]
+
 gems:
   - jekyll-pandoc
 
