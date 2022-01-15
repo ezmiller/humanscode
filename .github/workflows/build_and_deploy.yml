@@ -34,9 +34,14 @@ jobs:
         JEKYLL_ENV: production
     - name: Remove .html endings
       run: |
-        find _site/ -type f ! -iname 'index.html' -iname '*.html' -print0 | while read -d $'\0' f; do mv "$f" "${f%.html}"; done
+        find _site/ -Type f ! -iname 'index.html' -iname '*.html' -print0 | while read -d $'\0' f; do mv "$f" "${f%.html}"; done
         ls _site
     - name: Deploy to AWS S3
-      run: aws s3 sync ./_site/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete --cache-control max-age=604800
+      run: |
+        # sync files without .html extension, setting content-type
+        aws s3 sync ./_site/ s3://#{{ secrets.AWS_S3_BUCKET_NAME }} include="*" exclude="*.*" --recursive --content-type text/html
+
+        # sync everything else
+        aws s3 sync ./_site/ s3://#{{ secrets.AWS_S3_BUCKET_NAME }} include="*.*" -exclude="*" --recursive --recursive --include="*"
     - name: Create AWS Cloudfront Invalidation
       run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
