@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     colorator (1.1.0)
-    ffi (1.15.4)
+    ffi (1.15.5)
     forwardable-extended (2.6.0)
     jekyll (3.2.1)
       colorator (~> 1.0)
@@ -23,7 +23,7 @@ GEM
       listen (~> 3.0)
     kramdown (1.17.0)
     liquid (3.0.6)
-    listen (3.7.0)
+    listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.3.6)
@@ -51,7 +51,7 @@ DEPENDENCIES
   minima
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.2
+   2.2.3
