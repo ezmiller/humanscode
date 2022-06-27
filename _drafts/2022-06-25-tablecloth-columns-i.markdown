@@ -129,8 +129,8 @@ Nurenberger put it:
 This solution sounds like a promising approach, but involves
 sufficient complexity that I think it will remain out of scope for
 this project. Another idea that was batted around briefly was whether
-we could support just two dimensions if we, allowed tablecloth's
-column api to pass around a dataset internally as a kind of
+we could support just two dimensions if we just allowed tablecloth's
+column API to pass around a dataset internally as a kind of
 representation of a two dimensional matrix.
 
 However, I think ghosting behind these technical implementation
