@@ -19,7 +19,7 @@ funding opensource work on Clojure tools. This post is the first in
 what I hope to be a series of posts sharing my though process as I
 work on that project over a year's time.
 
-## The context for My Project
+## The context for the project
 
 During this project, I will be contributing to an important
 data-processing library called `tablecloth`. Before delving into the
@@ -37,8 +37,10 @@ One of these tools that has become particularly prominent is the
 so-called "tech" stack developed by Chris Nurenberger. This "stack"
 consists of a low-level library called
 [dtype-next](https://github.com/cnuernber/dtype-next), which provides
-a method for handling typed arrays or buffers, and another library,
-building in part on dtype-next, called
+a method for handling typed arrays or buffers (see a workshop I gave
+on this library
+[here](https://www.youtube.com/watch?v=5u3_k_D5KSI&t=565s&ab_channel=LondonClojurians)),
+and another library, building in part on dtype-next, called
 [tech.ml.dataset](https://github.com/techascent/tech.ml.dataset) that
 provides a column-based tabular `dataset` much like the "dataframes"
 one finds in R or Python's Pandas library.
@@ -61,7 +63,7 @@ a beautiful and consistent API for interacting with `datasets` that is
 inspired by the user-friendly syntax of R's tidyverse libraries among
 others.
 
-## My Project: Columns for Tablecloth
+## My project: columns for tablecloth
 
 What I will work on during this project, then is adding a new
 dimension to tablecloth's API. Currently, the focus of tablecloth's
@@ -90,7 +92,7 @@ Numpy's `array`, the hope is that when people are working with
 tablecloth, users can reach for the `column` when they need to do some
 focused processing on a 1d (or perhaps 2d set of items).
 
-## Some Limitations & Oddities
+## Some limitation & open questions
 
 When I originally conceived of this project, I thought what we might
 be doing is bringing full-fledged support for n-dimensional arrays
@@ -181,7 +183,6 @@ I believe the next steps will be to build out from this simple core of
 functions making it possible to do more with columns. This means
 considering either basic operations or indexing, slicing, and
 iterating over columns.
-
 
 
 [^1]: Chris Nurenberger, "High Performance Data with Clojure."
