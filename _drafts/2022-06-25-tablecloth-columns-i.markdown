@@ -1,41 +1,37 @@
 ---
 layout: post
-title:  Column Support in Tablecloth
+title: Columns For Tablecloth
 author: Ethan Miller
 date:   2022-06-26
 categories: clojure data-science
 ---
 
-For a few years now I have been working together with a unique group
+For a few years now, I have been working with a unique, global group
 of people associated with the [SciCloj](https://scicloj.github.io/)
-community, all of whom are interested in promoting the use of Clojure
-for data-centric computing. 
-
-As part of this effort, I recently put in an application and received
-funding from the [Clojurists
-Together](https://www.clojuriststogether.org/open-source/) an
-organization in the Clojure community that does a really practical job
-funding opensource work on Clojure tools. This post is the first in
-what I hope to be a series of posts sharing my though process as I
-work on that project over a year's time.
+community. All of them are interested in promoting the use of Clojure
+for data-centric computing. As part of this effort, I received funding
+from the [Clojurists
+Together](https://www.clojuriststogether.org/open-source/) -- an
+organization in the Clojure community that provides funding for open
+source work on Clojure tools -- to contribute to an important new
+data-processing library called
+[tablecloth](https://github.com/scicloj/tablecloth).
 
 ## The context for the project
 
-During this project, I will be contributing to an important
-data-processing library called `tablecloth`. Before delving into the
-nature of the project itself, I want to quickly explain my
-understanding of where this library fits.
+Before delving into the nature of the project itself, I want to
+quickly explain my understanding of where this library fits into the
+emerging Clojure data stack. Generally, speaking much of the work that
+I've been doing within SciCloj has been focused on the question of
+usabilty. The problem of usability has emerged only because in the
+last years a number of very talented individuals have created a set of
+powerful new tools that provide the bedrock for highly performant
+data-processing in Clojure.
 
-Much of the work that we have been doing in the SciCloj community has
-revolved around improving the usability of Clojure's emerging "stack"
-of data-related tooling. The problem of usability has emerged only
-because the last few years have seen the emergence of powerful new
-tools that provide the bedrock for highly performant data-processing
-in Clojure.
-
-One of these tools that has become particularly prominent is the
-so-called "tech" stack developed by Chris Nurenberger. This "stack"
-consists of a low-level library called
+One of the tools that has become particularly prominent is the
+so-called "tech" stack developed by [Chris
+Nurenberger](https://github.com/cnuernber). This "stack" consists of a
+low-level library called
 [dtype-next](https://github.com/cnuernber/dtype-next), which provides
 a method for handling typed arrays or buffers (see a workshop I gave
 on this library
@@ -47,7 +43,7 @@ one finds in R or Python's Pandas library.
 
 Using just tech.ml.dataset, one can already perform the kind of data
 analyses over large amounts of data that one would when, say,
-participting in a Kaggle competition. Indeed, in many cases, thanks to
+participating in a Kaggle competition. Indeed, in many cases, thanks to
 Chris Nurenberger's amazing work, this stack can outperform equivalent
 tools in Python, R, and even Julia.[^1] However, although very usable
 tech.ml.dataset does not have a very consistent API. For this reason,
@@ -72,7 +68,7 @@ many cases when working with data, especially when manipulating data
 as a preparation for feature engineering or some such, you are working
 primarily at the level of the whole `dataset`.
 
-There are times, however, when you may want to perform operations not
+Sometimes, however, when you may want to perform operations not
 across a whole dataset (or set of columns), but on a single column. So
 what this project will seek to do is add a new API for the `column`. 
 
@@ -98,28 +94,26 @@ When I originally conceived of this project, I thought what we might
 be doing is bringing full-fledged support for n-dimensional arrays
 into tablecloth. Indeed, I orgiinally conceived of the project as an
 adjunct library called `tablecloth.array`. My thought was that this
-distinct library might eschew altogether the reference to
-`tech.ml.dataset` -- which has some startup costs -- and simply rely
-on the lower-level library dtype-next, which has the key tools for
-efficient array processing and is in fact the basis for
-tech.ml.datset's columns.
+distinct library might eschew reliance on `tech.ml.dataset` -- which
+has some startup costs -- and simply rely on the lower-level library
+dtype-next, which has the key tools for efficient array processing and
+is in fact the basis for tech.ml.datset's columns.
 
 However, for a number of reasons this is not practical. First, there
-is already a very strong entry for array processing in the Clojure
-world: the [neanderathal](https://github.com/uncomplicate/neanderthal)
-library by Dragan Djuric
-([@draganrocks](https://twitter.com/draganrocks)). Second, dtype-next
-is so low-level that some of the things that one might need, such as
-automatic scanning of the items in an array to determine their
-datatype, are not present by default. Those features, right now
-anyway, only exist within tech.ml.dataset's `Column` type. As such,
-what we decided to do is build directly on the tech.ml.dataset's
-`Column` as we get so much for free.
+is already a solid tool for array processing in the Clojure world: the
+[neanderathal](https://github.com/uncomplicate/neanderthal) library by
+Dragan Djuric ([@draganrocks](https://twitter.com/draganrocks)).
+Second, dtype-next is so low-level that some of the things that one
+might need, such as automatic scanning of the items in an array to
+determine their datatype, are not present by default. Right now,
+anyway, those features only exist within tech.ml.dataset's `Column`
+type. As such, what we decided to do is build directly on the
+tech.ml.dataset's `Column` as we get so much for free.
 
-One consequence of this approach, however, is that we can not easily
-add n-dimensional support. The `column` in tech.ml.dataset, as the
-name might suggest, is not designed for multi-dimensionality. It is
-built on a single dtype-next buffer. There are possible approaches for
+One consequence of this approach is that we can not easily add
+n-dimensional support. The `column` in tech.ml.dataset, as the name
+might suggest, is not designed for multi-dimensionality. It is built
+on a single dtype-next buffer. There are possible approaches for
 layering on support for n-dimensionality, for example, as Chris
 Nurenberger put it:
 
@@ -136,12 +130,12 @@ representation of a two dimensional matrix.
 However, I think ghosting behind these technical implementation
 questions is a more general question of what people need. The impetus
 for this project was about usability. We already have powerful tools
-such as neanderthal and core.matrix that handle matrix operations.
-What we wanted was to build support for those kind of operations
-within the syntactical vernacular of tablecloth, which so many people
-have found pleasant to use. It's about making it so that users don't
-need to change tools and with it their whole mental model for working
-with the tool they are using.
+such as neanderthal and core.matrix that handle matrix operations. We
+wanted to build support for those kind of operations within the
+syntactical vernacular of tablecloth, which so many people have found
+pleasant to use. It's about making it so that users don't need to
+change tools, and with it their whole mental model for working with the
+tool they are using.
 
 Yet I think it is fair to say we still don't know what people really
 need in this space. In that respect, I think of this project as an
@@ -160,10 +154,10 @@ simple thing. It does two things:
 1. It establishes a new api domain: `tablecloth.column.api`. Rather
    than mixing column support into tablecloth's main api
    (`tablecloth.api`), Tomasz suggested we keep it distinct. This
-   should help clarify both for implementation and use when we are
-   dealing with a column and when we are dealing with a dataset, and
-   operations on those entities. It also means that we don't end up
-   with naming colisions.
+   should help clarify when we are dealing with a column and when we
+   are dealing with a dataset. It also means that we don't end up with
+   naming collisions (e.g. for example there's already a
+   `tablecloth.api/column` function).
 2. It adds a basic set of core functions that establish the `column`
    primitive. These are:
    - `column` - creates a column
@@ -171,11 +165,14 @@ simple thing. It does two things:
    - `typeof`/`typeof?` - identify the datatypes of the column's elements
    - `ones` / `zeros` - create columns filled with ones or zeros
    
-There's not a whole lot to say about these functions that is probably
-not rather obvious. One thing to note is that the inspiration is here
+There's not a lot to say about these functions that is probably not
+rather obvious. One thing to note is that the inspiration is here
 being taken from both the R and Python worlds. R uses the name
 `typeof` for its typed "atomic" vectors, and Python's Numpy uses the
-functions `ones` and `zeros`.
+functions `ones` and `zeros`. This practice of drawing on (hopefully
+the best) of the existing libraries in other languages is something
+that I intend to continue and do even more deeply, and which I believe
+is key to the Tomasz's strategy in building tablecloth to begin with.
 
 ## Next steps
 
