@@ -8,7 +8,7 @@ categories: clojure data-science
 
 For a few years now, I have been working with a unique, global group
 of people associated with the [SciCloj](https://scicloj.github.io/)
-community. All of them are interested in promoting the use of Clojure
+community, many of whom are interested in promoting the use of Clojure
 for data-centric computing. As part of this effort, I recently applied
 for and then received funding from [Clojurists
 Together](https://www.clojuriststogether.org/open-source/) -- an
