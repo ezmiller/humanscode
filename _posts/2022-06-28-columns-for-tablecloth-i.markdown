@@ -41,12 +41,12 @@ and [tech.ml.dataset](https://github.com/techascent/tech.ml.dataset)
 that provides a column-based tabular `dataset` much like the
 "dataframes" one finds in R or Python's Pandas library.
 
-Using just tech.ml.dataset, one can already perform the kind of data
-analyses over large amounts of data. Indeed, in many cases, thanks to
-Chris Nurenberger's amazing work, this stack can outperform equivalent
-tools in Python, R, and even Julia.[^1] However, although very usable
-in its own right, tech.ml.dataset is somewhat low level and its API is
-not always consistent. For this reason, many people start out with the
+Using just tech.ml.dataset, one can already perform analyses over
+large amounts of data. Indeed, in many cases, thanks to Chris
+Nurenberger's amazing work, this stack can outperform equivalent tools
+in Python, R, and even Julia.[^1] However, although very usable in its
+own right, tech.ml.dataset is somewhat low level and its API is not
+always consistent. For this reason, many people start out with the
 library to which I will be contributing:
 [tablecloth](https://github.com/scicloj/tablecloth).
 
