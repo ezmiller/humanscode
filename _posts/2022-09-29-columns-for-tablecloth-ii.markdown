@@ -2,7 +2,7 @@
 layout: post
 title: "Columns For Tablecloth, Update #2"
 author: Ethan Miller
-date:   2022-06-28
+date:   2022-09-29
 categories: clojure data-science
 ---
 
