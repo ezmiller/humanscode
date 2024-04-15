@@ -73,7 +73,7 @@ documentation](https://scicloj.github.io/tablecloth/#column-api).
 In addition to the new Column API, the changes we've deployed also add
 expressive powe to the standard Dataset API. Previously, if you needed
 to do something simple like a group by and aggregation on a column in
-a dataset, it could get unnecessarily verbose:
+a dataset, the code could become unnecessarily verbose:
 
 ```
 (defonce stocks
@@ -82,7 +82,8 @@ a dataset, it could get unnecessarily verbose:
 
 (tc/column-names stocks)
 
-(-> stocks
+(-> stock
+s
     (tc/group-by [:symbol])
     (tc/aggregate (fn [ds]
                     (-> ds
@@ -99,7 +100,7 @@ a dataset, it could get unnecessarily verbose:
 |    AAPL |  64.73048780 |
 ```
 
-With these changes, you can now simply write: 
+With the new column operations within for datasets, you can now simply write: 
 
 ```
 (-> stocks
@@ -107,9 +108,50 @@ With these changes, you can now simply write:
     (tc/mean [:price]))
 ```
 
-The same operations available to run on the `column` can be called on
-columns in the datasest. For more information, on these operations,
-please consult the documentation
+The same set operations available to be run on the `column` can be
+called on columns in the datasest. However, when operating a dataset,
+functions that would return a scalar value act as aggregator
+functions, as seen above.
+
+Funcitons that would return a new column, allow the user to specify a
+target column to be added to the dataset, as in this example where we
+first use the method above to add a column with the mean back to
+stocks:
+
+```
+(def stocks-with-mean
+  (-> stocks
+      (tc/group-by [:symbol])
+      (tc/mean [:price])
+      (tc/rename-columns {"summary" :mean-price})
+      (tc/inner-join stocks :symbol)))
+
+
+stocks-with-mean
+;; => inner-join [560 4]:
+;;    | :symbol | :mean-price |      :date | :price |
+;;    |---------|------------:|------------|-------:|
+;;    |    MSFT | 24.73674797 | 2000-01-01 |  39.81 |
+;;    |    MSFT | 24.73674797 | 2000-02-01 |  36.35 |
+;;    |    MSFT | 24.73674797 | 2000-03-01 |  43.22 |
+;;    |    MSFT | 24.73674797 | 2000-04-01 |  28.37 |
+```
+Then we a dataset column operation that returns a column to add a new column holding the relative daily price of the stock:
+
+```
+(-> stocks-with-mean
+    (tc// :relative-daily-price [:price :mean-price]))
+;; => inner-join [560 5]:
+;;    | :symbol | :mean-price |      :date | :price | :relative-daily-price |
+;;    |---------|------------:|------------|-------:|----------------------:|
+;;    |    MSFT | 24.73674797 | 2000-01-01 |  39.81 |            1.60934655 |
+;;    |    MSFT | 24.73674797 | 2000-02-01 |  36.35 |            1.46947368 |
+;;    |    MSFT | 24.73674797 | 2000-03-01 |  43.22 |            1.74719814 |
+;;    |    MSFT | 24.73674797 | 2000-04-01 |  28.37 |            1.14687670 |
+```
+
+For more information, on these operations, please consult the
+documentation
 [here](https://scicloj.github.io/tablecloth/pr-preview/pr-100/#column-operations).
 
 ## Thanks to Clojurist Together
