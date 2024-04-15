@@ -30,8 +30,8 @@ the column is just the `column` defined in
 the library that backs Tablecloth.
 
 The difference is that now when you are using Tablecloth you have the
-option of interacting directly with a `column`, using an API that
-provides a set of functions that take and return a column.
+option of interacting directly with a `column` using an API that
+provides a set of operations that always take and return a column.
 
 ## Basic Usage
 
