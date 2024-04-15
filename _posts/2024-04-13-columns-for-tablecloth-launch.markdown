@@ -82,8 +82,7 @@ dataset, the code could become unnecessarily verbose:
 
 (tc/column-names stocks)
 
-(-> stock
-s
+(-> stocks
     (tc/group-by [:symbol])
     (tc/aggregate (fn [ds]
                     (-> ds
