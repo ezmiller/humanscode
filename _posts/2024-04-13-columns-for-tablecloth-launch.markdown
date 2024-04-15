@@ -8,8 +8,8 @@ categories: clojure data-science
 
 ## The New `Column` API
 
-Today we have deployed a new Column API (`tablecloth.column.api`) into
- the data processing library
+Today we deployed a new Column API (`tablecloth.column.api`) into the
+ data processing library
  [Tablecloth](https://gitub.com/scicloj/tablecloth) (available as of
  version `7.029.1`). This new API adds a new primitive to the
  Tablecloth system: the `column`. Here's how we use it:
@@ -24,7 +24,7 @@ null
 ```
 
 The new `column` is the same as the columns that comprise a `dataset`.
-It is one-dimensional typed sequence of values. Underneath the hood,
+It is a one-dimensional typed sequence of values. Underneath the hood,
 the column is just the `column` defined in
 [tech.ml.dataset](https://techascent.github.io/tech.ml.dataset/tech.v3.dataset.column.html),
 the library that backs Tablecloth.
@@ -70,10 +70,10 @@ documentation](https://scicloj.github.io/tablecloth/#column-api).
 
 ## Easier Column Operations on the Dataset
 
-In addition to the new Column API, the changes we've deployed also add
-expressive powe to the standard Dataset API. Previously, if you needed
-to do something simple like a group by and aggregation on a column in
-a dataset, the code could become unnecessarily verbose:
+The changes we've deployed also improve the expressive power of
+Tablecloth's standard Dataset API. Previously, if you needed to do
+something simple like a group by and aggregation on a column in a
+dataset, the code could become unnecessarily verbose:
 
 ```
 (defonce stocks
