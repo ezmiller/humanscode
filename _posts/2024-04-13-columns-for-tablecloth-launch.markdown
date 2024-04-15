@@ -112,7 +112,7 @@ called on columns in the datasest. However, when operating a dataset,
 functions that would return a scalar value act as aggregator
 functions, as seen above.
 
-Functions that would return a new column, allow the user to specify a
+Functions that would return a new column allow the user to specify a
 target column to be added to the dataset, as in this example where we
 first use the method above to add a column with the mean back to
 stocks:
