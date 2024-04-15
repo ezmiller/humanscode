@@ -135,7 +135,7 @@ stocks-with-mean
 ;;    |    MSFT | 24.73674797 | 2000-03-01 |  43.22 |
 ;;    |    MSFT | 24.73674797 | 2000-04-01 |  28.37 |
 ```
-Then we a dataset column operation that returns a column to add a new column holding the relative daily price of the stock:
+Then we use a dataset column operation that returns a column -- column division, in this case -- to add a new column holding the relative daily price of the stock:
 
 ```
 (-> stocks-with-mean
