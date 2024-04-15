@@ -8,11 +8,11 @@ categories: clojure data-science
 
 ## The New `Column` API
 
-In the next few days, we at [Scicloj](https://scicloj.github.io) will
-deploy a new Column API (`tablecloth.column.api`) into the data
-processing library [Tablecloth](https://gitub.com/scicloj/tablecloth).
-This new API adds a new primitive to the Tablecloth system: the
-`column`. Here's how we use it:
+Today we have deployed a new Column API (`tablecloth.column.api`) into
+ the data processing library
+ [Tablecloth](https://gitub.com/scicloj/tablecloth) (available as of
+ version `7.029.1`). This new API adds a new primitive to the
+ Tablecloth system: the `column`. Here's how we use it:
 
 ```
 (require '[tablecloth.column.api :as tcc])
