@@ -138,6 +138,8 @@ stocks-with-mean
 Then we use a dataset column operation that returns a column -- column division, in this case -- to add a new column holding the relative daily price of the stock:
 
 ```
+(require '[tablecloth.api :as tc])
+
 (-> stocks-with-mean
     (tc// :relative-daily-price [:price :mean-price]))
 ;; => inner-join [560 5]:
